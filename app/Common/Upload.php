@@ -29,7 +29,7 @@ class Upload
         $this->curl->post($this->url, $params);
 
         return [
-            "state" => $this->curl->response->code == 200 ? "SUCCESS" : $this->curl->response->message,
+            "state" => $this->curl->response->code == 200 ? "SUCCESS" : $this->curl->response->data->err,
             "url" => $this->curl->response->data->url,
         ];
     }
