@@ -42,10 +42,15 @@ class BannersController extends Controller
 		$module = Module::get('Banners');
 
 		if ( Module::hasAccess($module->id) ) {
+		    $status_list = [
+                0 => "否",
+                1 => "是",
+            ];
 			return View('la.banners.index', [
 				'show_actions' => $this->show_action,
 				'listing_cols' => $this->listing_cols,
-				'module' => $module
+				'module' => $module,
+                "status_list" => $status_list
 			]);
 		} else {
             return redirect(config('laraadmin.adminRoute')."/");
