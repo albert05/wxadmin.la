@@ -15,12 +15,6 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         // Commands\Inspire::class,
         Commands\Monitor::class,
-        Commands\DailyJob::class,
-        Commands\ExchangeJob::class,
-        Commands\OrderJob::class,
-        Commands\ShareJob::class,
-        Commands\TestJob::class,
-        Commands\TransferJob::class,
     ];
 
     /**
