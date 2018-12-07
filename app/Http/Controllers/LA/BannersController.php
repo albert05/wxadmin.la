@@ -189,7 +189,7 @@ class BannersController extends Controller
 	 */
 	public function imgup()
 	{
-	    $f = new Upload();
+//	    $f = new Upload();
 //        $ret = $f->upload($_FILES["img"]['tmp_name']);
 
         return json_encode(["state" => "111"]);
