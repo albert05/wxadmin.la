@@ -41,7 +41,7 @@ class BannersController extends Controller
 		$module = Module::get('Banners');
 
 		if ( Module::hasAccess($module->id) ) {
-			return View('la.bannbers.index', [
+			return View('la.banners.index', [
 				'show_actions' => $this->show_action,
 				'listing_cols' => $this->listing_cols,
 				'module' => $module
@@ -70,10 +70,10 @@ class BannersController extends Controller
 			}
 			
 			Banner::create([
-				'user_key' => $request->user_key,
-                'user_name' => $request->user_name,
-                'password' => $request->password,
-                'pay_passwd' => $request->pay_passwd,
+				'img_url' => $request->img_url,
+                'title' => $request->title,
+                'jump_url' => $request->jump_url,
+                'status' => $request->status,
 			]);
 
 			return redirect()->route(config('laraadmin.adminRoute') . '.banners.index');
@@ -165,10 +165,10 @@ class BannersController extends Controller
 			}
 			
             Banner::where('id', $id)->update([
-                'user_key' => $request->user_key,
-                'user_name' => $request->user_name,
-                'password' => $request->password,
-                'pay_passwd' => $request->pay_passwd,
+                'img_url' => $request->img_url,
+                'title' => $request->title,
+                'jump_url' => $request->jump_url,
+                'status' => $request->status,
             ]);
         	
 			return redirect()->route(config('laraadmin.adminRoute') . '.banners.index');
