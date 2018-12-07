@@ -192,7 +192,7 @@ class BannersController extends Controller
 	    $f = new Upload();
 //        $ret = $f->upload($_FILES["img"]['tmp_name']);
 
-        return json_encode(["state" => $_FILES["img"]['tmp_name']]);
+        return json_encode(["state" => "111"]);
 	}
 	
 	/**
