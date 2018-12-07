@@ -145,8 +145,14 @@ $(function () {
                     alert(data.state);
                 }
             },
-            error: function () {
-                alert('上传失败');
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                // 状态码
+                console.log(XMLHttpRequest.status);
+                // 状态
+                console.log(XMLHttpRequest.readyState);
+                // 错误信息
+                console.log(textStatus);
+                alert("上传失败");
             },
             contentType: false, // need
             processData: false // need
