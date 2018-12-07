@@ -17,5 +17,5 @@ class Banner extends Model
 
 	protected $guarded = [];
 
-	protected $dates = [];
+	protected $dates = ['deleted_at'];
 }
