@@ -138,6 +138,9 @@ $(function () {
             type: 'POST',
             data: formData, // 发送的数据
             dataType: 'json', // 返回数据的类型
+            heads : {
+                'content-type' : 'multipart/form-data'
+            },
             success: function (data) {
                 if ( data.state == "SUCCESS" ) {
                     $("#img_url_view").attr("src", data.url);
