@@ -187,7 +187,7 @@ class BannersController extends Controller
 	/**
 	 * Remove the specified worklist from storage.
 	 */
-	public function imgup()
+	public function imgup(Request $request)
 	{
 	    $f = new Upload();
 //        $ret = $f->upload($_FILES["img"]['tmp_name']);
