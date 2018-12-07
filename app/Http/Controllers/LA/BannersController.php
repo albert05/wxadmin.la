@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\LA;
 
+use App\Common\Upload;
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use Illuminate\Http\Request;
@@ -180,19 +181,13 @@ class BannersController extends Controller
 
 	/**
 	 * Remove the specified worklist from storage.
-	 *
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy($id)
+	public function imgup()
 	{
-		if( Module::hasAccess("Banners", "delete") ) {
-            Banner::find($id)->delete();
-			
-			return redirect()->route(config('laraadmin.adminRoute') . '.banners.index');
-		} else {
-			return redirect(config('laraadmin.adminRoute')."/");
-		}
+	    $f = new Upload();
+        $ret = $f->upload($_FILES["img"]['tmp_name']);
+
+        return json_encode($ret);
 	}
 	
 	/**

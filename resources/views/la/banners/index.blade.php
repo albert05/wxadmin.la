@@ -51,23 +51,53 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Add Banner</h4>
+				<h4 class="modal-title" id="myModalLabel">添加Banner</h4>
 			</div>
 			{!! Form::open(['action' => 'LA\BannersController@store', 'id' => 'banner-add-form']) !!}
 			<div class="modal-body">
 				<div class="box-body">
-                    @la_form($module)
+					<div class="form-group control-all">
+						<label for="title">标题 :</label>
+						<input class="form-control" placeholder=" 输入标题" data-rule-maxlength="256" name="title" type="text" value="">
+					</div>
+
+					<div class="form-group control-all">
+						<label for="img_url">图片 :</label>
+						<input class="form-control" placeholder="" data-rule-maxlength="256" name="img_url" type="hidden" value="" id="img_url">
+						<span><img id='img_url_view' src=''></span><button type="button" class="btn btn-success up-img" style="margin-left: 20px;">上传</button>
+					</div>
+
+					<div class="form-group control-all">
+						<label for="jump_url">跳转地址 :</label>
+						<div class='input-group datetime'>
+							<input id= 'datetimepicker' class="form-control" placeholder=" 输入跳转地址" required="1" name="jump_url" type="text" value="">
+						</div>
+					</div>
+
+					<div class="form-group control-all">
+						<label for="status">是否启用 :</label>
+						<select class="form-control select2-hidden-accessible work-select" data-placeholder="选择是否启用" rel="select2" name="status" tabindex="0" aria-hidden="true">
+							@foreach ($status_list as $k => $v)
+								<option value="{{$k}}" >{{$v}}</option>
+							@endforeach
+						</select>
+					</div>
+
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				{!! Form::submit( 'Submit', ['class'=>'btn btn-success']) !!}
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				{!! Form::submit( '提交', ['class'=>'btn btn-success']) !!}
 			</div>
 			{!! Form::close() !!}
 		</div>
 	</div>
 </div>
 @endla_access
+
+<form id="img-up" action="" method="post" enctype="multipart/form-data"  style="display: none;">
+	<input type="file" id="up_img_url" class="form-control c-md-2" name="img" value="">
+</form>
 
 
 @endsection
@@ -96,6 +126,33 @@ $(function () {
 	$("#banner-add-form").validate({
 		
 	});
+
+    $('.up-img').on("click", function () {
+        $('#up_img_url').click();
+    });
+
+    $('#up_img_url').on('change', function () {
+        var formData = new FormData($('#img-up')[0]); // FormData is the key
+        $.ajax({
+            url: "{{ url(config('laraadmin.adminRoute') . '/banner_img_up') }}",  // 处理请求的PHP文件 / 接口
+            type: 'POST',
+            data: formData, // 发送的数据
+            dataType: 'json', // 返回数据的类型
+            success: function (data) {
+                if ( data.state == "SUCCESS" ) {
+                    $("#img_url_view").attr("src", data.url);
+                } else {
+                    alert(data.state);
+                }
+            },
+            error: function () {
+                alert('上传失败');
+            },
+            contentType: false, // need
+            processData: false // need
+        });
+    });
+
 });
 </script>
 @endpush
