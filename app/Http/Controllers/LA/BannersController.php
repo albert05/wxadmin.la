@@ -23,11 +23,11 @@ class BannersController extends Controller
 		// Field Access of Listing Columns
 		if(\Dwij\Laraadmin\Helpers\LAHelper::laravel_ver() == 5.3) {
 			$this->middleware(function ($request, $next) {
-				$this->listing_cols = ModuleFields::listingColumnAccessScan('UserInfos', $this->listing_cols);
+				$this->listing_cols = ModuleFields::listingColumnAccessScan('Banners', $this->listing_cols);
 				return $next($request);
 			});
 		} else {
-			$this->listing_cols = ModuleFields::listingColumnAccessScan('UserInfos', $this->listing_cols);
+			$this->listing_cols = ModuleFields::listingColumnAccessScan('Banners', $this->listing_cols);
 		}
 	}
 	
