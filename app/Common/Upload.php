@@ -5,7 +5,7 @@ use \Curl\Curl;
 
 class Upload
 {
-    const url = "http://api.albert.pub/v1/file/upload";
+    const URL = "http://api.albert.pub/v1/file/upload";
 
     protected $apiKey;
     protected $apiSecret;
@@ -26,7 +26,7 @@ class Upload
             "image" => $filename,
         ];
 
-        $this->curl->post($this->url, $params);
+        $this->curl->post(self::URL, $params);
 
         return [
             "state" => $this->curl->response->code == 200 ? "SUCCESS" : json_encode($this->curl->response),
