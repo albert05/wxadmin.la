@@ -48,7 +48,7 @@ class BannersController extends Controller
                 0 => "否",
                 1 => "是",
             ];
-			return View('banners.index', [
+			return View('la.banners.index', [
 				'show_actions' => $this->show_action,
 				'listing_cols' => $this->listing_cols,
 				'module' => $module,
@@ -105,7 +105,7 @@ class BannersController extends Controller
 				$module = Module::get('Banners');
 				$module->row = $banner;
 				
-				return view('banners.show', [
+				return view('la.banners.show', [
 					'module' => $module,
 					'view_col' => $this->view_col,
 					'no_header' => true,
@@ -138,7 +138,7 @@ class BannersController extends Controller
 				
 				$module->row = $banner;
 				
-				return view('banners.edit', [
+				return view('la.banners.edit', [
 					'module' => $module,
 					'view_col' => $this->view_col,
 				])->with('banner', $banner);
