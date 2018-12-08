@@ -18,7 +18,7 @@
 									<a href="#">
 										<div class="pull-left">
 											<!-- User Image -->
-											<img src="@if(isset(Auth::user()->email)) {{ Gravatar::fallback(asset('la-assets/img/user2-160x160.jpg'))->get(Auth::user()->email) }} @else asset('/img/user2-160x160.jpg' @endif" class="img-circle" alt="User Image"/>
+											<img src="{{ asset('la-assets/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image"/>
 										</div>
 										<!-- Message title and timestamp -->
 										<h4>
@@ -112,7 +112,7 @@
 						<ul class="dropdown-menu">
 							<!-- The user image in the menu -->
 							<li class="user-header">
-								<img src="{{ sset('la-assets/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image" />
+								<img src="{{ asset('la-assets/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image" />
 								<p>
 									{{ Auth::user()->name }}
 									<?php
