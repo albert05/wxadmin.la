@@ -29,7 +29,7 @@
 	<div class="box-body">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-				{!! Form::model($banner, ['route' => [config('laraadmin.adminRoute') . '.banners.update', $banner->id ], 'method'=>'PUT', 'id' => 'banner-edit-form']) !!}
+				{!! Form::model($banner, ['route' => [url(config('laraadmin.adminRoute') . '.banners.update'), $banner->id ], 'method'=>'PUT', 'id' => 'banner-edit-form']) !!}
 					@la_form($module)
 					<br>
 					<div class="form-group">
