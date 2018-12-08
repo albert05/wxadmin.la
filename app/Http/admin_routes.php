@@ -57,7 +57,7 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	Route::get(config('laraadmin.adminRoute') . '/organization_dt_ajax', 'LA\OrganizationsController@dtajax');
 
     /* ================== Banners ================== */
-    Route::resource(config('laraadmin.adminRoute') . '/banners', 'LA\BannersController');
+    Route::resource('banners', 'LA\BannersController');
     Route::get(config('laraadmin.adminRoute') . '/banner_dt_ajax', 'LA\BannersController@dtajax');
     Route::any(config('laraadmin.adminRoute') . '/banner_img_up', 'LA\BannersController@imgup');
 
