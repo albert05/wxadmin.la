@@ -30,7 +30,6 @@
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				{!! Form::model($banner, ['route' => ['banners.update', $banner->id ], 'method'=>'PUT', 'id' => 'banner-edit-form']) !!}
-					{{--@la_form($module)--}}
 				<div class="form-group control-all">
 					<label for="title">标题 :</label>
 					<input class="form-control" placeholder=" 输入标题" data-rule-maxlength="256" name="title" type="text" value="{{$task->title}}">
