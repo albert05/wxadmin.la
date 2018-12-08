@@ -48,7 +48,7 @@ class BannersController extends Controller
                 0 => "否",
                 1 => "是",
             ];
-			return View('la.banners.index', [
+			return View('banners.index', [
 				'show_actions' => $this->show_action,
 				'listing_cols' => $this->listing_cols,
 				'module' => $module,
@@ -84,7 +84,7 @@ class BannersController extends Controller
                 'status' => $request->status,
 			]);
 
-			return redirect()->route(config('laraadmin.adminRoute') . '.banners.index');
+			return redirect()->route('banners.index');
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
 		}
@@ -105,7 +105,7 @@ class BannersController extends Controller
 				$module = Module::get('Banners');
 				$module->row = $banner;
 				
-				return view('la.banners.show', [
+				return view('banners.show', [
 					'module' => $module,
 					'view_col' => $this->view_col,
 					'no_header' => true,
@@ -138,7 +138,7 @@ class BannersController extends Controller
 				
 				$module->row = $banner;
 				
-				return view('la.banners.edit', [
+				return view('banners.edit', [
 					'module' => $module,
 					'view_col' => $this->view_col,
 				])->with('banner', $banner);
@@ -179,7 +179,7 @@ class BannersController extends Controller
                 'status' => $request->status,
             ]);
         	
-			return redirect()->route(config('laraadmin.adminRoute') . '.banners.index');
+			return redirect()->route('banners.index');
 			
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
@@ -234,13 +234,7 @@ class BannersController extends Controller
 			if($this->show_action) {
 				$output = '';
 				if(Module::hasAccess("Banners", "edit")) {
-                    $output .= '<a href="'.url(config('laraadmin.adminRoute') . '/banners/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
-				}
-				
-				if ( Module::hasAccess("Banners", "delete") ) {
-					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.banners.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
-					$output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
-					$output .= Form::close();
+                    $output .= '<a href="'.url(config('laraadmin.adminRoute') . '/banners/'.$data->data[$i][0].'/edit').' class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
 				}
 				$data->data[$i][] = (string)$output;
 			}
