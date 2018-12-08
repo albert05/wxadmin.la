@@ -133,6 +133,11 @@ $(function () {
     });
 
     $('#up_img_url').on('change', function () {
+        $('.up-img').text("上传中");
+        $('.up-img').attr("disabled","disabled");
+        $('.up-img').removeClass("btn-success");
+        $('.up-img').addClass("btn-danger");
+
         var formData = new FormData($('#img-up')[0]); // FormData is the key
         $.ajax({
             url: "{{ url(config('laraadmin.adminRoute') . '/banner_img_up') }}",  // 处理请求的PHP文件 / 接口
@@ -144,11 +149,16 @@ $(function () {
             // },
             success: function (data) {
                 if ( data.state == "SUCCESS" ) {
+                    $("#img_url").val(data.url);
                     $("#img_url_view").attr("src", data.url);
                     $("#img_url_view").show();
                 } else {
                     alert(data.state);
                 }
+                $('.up-img').removeAttr("disabled");
+                $('.up-img').text("上传");
+                $('.up-img').removeClass("btn-danger");
+                $('.up-img').addClass("btn-success");
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 // 状态码
@@ -158,6 +168,10 @@ $(function () {
                 // 错误信息
                 console.log(textStatus);
                 alert("上传失败");
+                $('.up-img').removeAttr("disabled");
+                $('.up-img').text("上传");
+                $('.up-img').removeClass("btn-danger");
+                $('.up-img').addClass("btn-success");
             },
             contentType: false, // need
             processData: false // need
