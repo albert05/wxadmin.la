@@ -195,12 +195,13 @@ class BannersController extends Controller
 
         if ( $file->isValid() ) {
             $filename = $file->getRealPath();
+            if ( file_exists($filename) ) {
+                $f = new Upload();
+                $f->ext = $file->getClientOriginalExtension();
+                $ret = $f->upload($filename);
 
-            $f = new Upload();
-            $f->ext = $file->getClientOriginalExtension();
-            $ret = $f->upload($filename);
-
-            return json_encode($ret);
+                return json_encode($ret);
+            }
         }
 
         return json_encode(["state" => "无效的图片"]);
