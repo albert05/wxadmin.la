@@ -226,6 +226,11 @@ class BannersController extends Controller
 				if($fields_popup[$col] != null && starts_with($fields_popup[$col]->popup_vals, "@")) {
 					$data->data[$i][$j] = ModuleFields::getFieldValue($fields_popup[$col], $data->data[$i][$j]);
 				}
+
+				if ($col == "img_url") {
+                    $data->data[$i][$j] = "<img src='{$data->data[$i][$j]}' width=\"300px\" height=\"150px\">";
+                }
+
 //				if($col == $this->view_col) {
 //					$data->data[$i][$j] = '<a href="'.url(config('laraadmin.adminRoute') . '/banners/'.$data->data[$i][0]).'">'.$data->data[$i][$j].'</a>';
 //				}
