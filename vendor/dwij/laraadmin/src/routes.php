@@ -12,8 +12,8 @@ Route::group([
 ], function () {
     
 	/* ================== Modules ================== */
-	Route::resource(config('laraadmin.adminRoute') . '/modules', 'ModuleController');
-	Route::resource(config('laraadmin.adminRoute') . '/module_fields', 'FieldController');
+	Route::resource('modules', 'ModuleController');
+	Route::resource('module_fields', 'FieldController');
 	Route::get(config('laraadmin.adminRoute') . '/module_generate_crud/{model_id}', 'ModuleController@generate_crud');
 	Route::get(config('laraadmin.adminRoute') . '/module_generate_migr/{model_id}', 'ModuleController@generate_migr');
 	Route::get(config('laraadmin.adminRoute') . '/module_generate_update/{model_id}', 'ModuleController@generate_update');
@@ -36,11 +36,11 @@ Route::group([
 	});
 
 	/* ================== Menu Editor ================== */
-	Route::resource(config('laraadmin.adminRoute') . '/la_menus', 'MenuController');
+	Route::resource('la_menus', 'MenuController');
 	Route::post(config('laraadmin.adminRoute') . '/la_menus/update_hierarchy', 'MenuController@update_hierarchy');
 	
 	/* ================== Configuration ================== */
-	Route::resource(config('laraadmin.adminRoute') . '/la_configs', '\App\Http\Controllers\LA\LAConfigController');
+	Route::resource('la_configs', '\App\Http\Controllers\LA\LAConfigController');
 	
     Route::group([
         'middleware' => 'role'
