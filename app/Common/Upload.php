@@ -15,6 +15,7 @@ class Upload
     public function __construct()
     {
         $this->curl = new Curl();
+        $this->curl->setOpt(CURLOPT_HTTPHEADER, ['Content-Type:multipart/form-data;charset=utf-8']);
         $this->apiKey = env("api_key");
         $this->apiSecret = env("api_secret");
     }
@@ -26,7 +27,7 @@ class Upload
             "image" => "@$filename",
         ];
 
-        $this->curl->patch(self::URL, $params);
+        $this->curl->post(self::URL, $params);
 
         return json_decode(json_encode($this->curl->response), true);
 
