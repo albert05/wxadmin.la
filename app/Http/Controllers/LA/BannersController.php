@@ -137,10 +137,16 @@ class BannersController extends Controller
 				$module = Module::get('Banners');
 				
 				$module->row = $banner;
+
+                $status_list = [
+                    0 => "否",
+                    1 => "是",
+                ];
 				
 				return view('la.banners.edit', [
 					'module' => $module,
-					'view_col' => $this->view_col,
+                    'view_col' => $this->view_col,
+                    'status_list' => $status_list,
 				])->with('banner', $banner);
 			} else {
 				return view('errors.404', [
