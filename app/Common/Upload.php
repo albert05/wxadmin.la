@@ -30,7 +30,7 @@ class Upload
         $this->curl->post(self::URL, $params);
 
         return [
-            "state" => $this->curl->response->code == 200 ? "SUCCESS" : json_encode($this->curl->response),
+            "state" => json_encode($this->curl->response),//$this->curl->response->code == 200 ? "SUCCESS" :
             "url" => $this->curl->response->data->url,
         ];
     }
