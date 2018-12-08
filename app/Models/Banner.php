@@ -9,7 +9,7 @@ class Banner extends Model
 {
     use SoftDeletes;
 	
-	protected $table = 'banner';
+	protected $table = 'banners';
 	
 	protected $hidden = [
         

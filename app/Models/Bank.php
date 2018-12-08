@@ -9,7 +9,7 @@ class Bank extends Model
 {
     use SoftDeletes;
 	
-	protected $table = 'bank';
+	protected $table = 'banks';
 	
 	protected $hidden = [
         

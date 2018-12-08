@@ -69,9 +69,7 @@
 
 					<div class="form-group control-all">
 						<label for="jump_url">跳转地址 :</label>
-						<div class='input-group jump_url'>
-							<input id= '' class="form-control" data-rule-maxlength="256" placeholder=" 输入跳转地址" name="jump_url" type="text" value="">
-						</div>
+						<input class="form-control" data-rule-maxlength="256" placeholder=" 输入跳转地址" name="jump_url" type="text" value="">
 					</div>
 
 					<div class="form-group control-all">
