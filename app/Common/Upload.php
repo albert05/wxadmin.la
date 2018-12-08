@@ -18,6 +18,7 @@ class Upload
     {
         $this->curl = new Curl();
         $this->curl->setOpt(CURLOPT_HTTPHEADER, ['Content-Type:multipart/form-data;charset=utf-8']);
+        $this->curl->setOpt(CURLOPT_TIMEOUT, 60);
         $this->apiKey = env("api_key");
         $this->apiSecret = env("api_secret");
     }
