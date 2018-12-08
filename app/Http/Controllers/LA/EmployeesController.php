@@ -121,7 +121,7 @@ class EmployeesController extends Controller
 				Log::info("User created: username: ".$user->email." Password: ".$password);
 			}
 			
-			return redirect()->route(config('laraadmin.adminRoute') . '.employees.index');
+			return redirect()->route('employees.index');
 			
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
@@ -230,7 +230,7 @@ class EmployeesController extends Controller
 			$role = Role::find($request->role);
 			$user->attachRole($role);
 			
-			return redirect()->route(config('laraadmin.adminRoute') . '.employees.index');
+			return redirect()->route('employees.index');
 			
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
@@ -249,7 +249,7 @@ class EmployeesController extends Controller
 			Employee::find($id)->delete();
 			
 			// Redirecting to index() method
-			return redirect()->route(config('laraadmin.adminRoute') . '.employees.index');
+			return redirect()->route('employees.index');
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
 		}
