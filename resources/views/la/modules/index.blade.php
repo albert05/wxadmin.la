@@ -57,7 +57,7 @@ use Dwij\Laraadmin\Models\Module;
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title" id="myModalLabel">Add Module</h4>
 			</div>
-			{!! Form::open(['route' => config('laraadmin.adminRoute') . '.modules.store', 'id' => 'module-add-form']) !!}
+			{!! Form::open(['route' => 'modules.store', 'id' => 'module-add-form']) !!}
 			<div class="modal-body">
 				<div class="box-body">
 					<div class="form-group">
@@ -99,7 +99,7 @@ use Dwij\Laraadmin\Models\Module;
 				<p class="text-danger">Note: Migration file will not be deleted but modified.</p>
 			</div>
 			<div class="modal-footer">
-				{{ Form::open(['route' => [config('laraadmin.adminRoute') . '.modules.destroy', 0], 'id' => 'module_del_form', 'method' => 'delete', 'style'=>'display:inline']) }}
+				{{ Form::open(['route' => ['modules.destroy', 0], 'id' => 'module_del_form', 'method' => 'delete', 'style'=>'display:inline']) }}
 					<button class="btn btn-danger btn-delete pull-left" type="submit">Yes</button>
 				{{ Form::close() }}
 				<a data-dismiss="modal" class="btn btn-default pull-right" >No</a>				
