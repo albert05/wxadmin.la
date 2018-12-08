@@ -189,10 +189,18 @@ class BannersController extends Controller
 	 */
 	public function imgup()
 	{
-//	    $f = new Upload();
-//        $ret = $f->upload($_FILES["img"]['tmp_name']);
+        $file = Input::file('img');
 
-        return json_encode(["state" => "111"]);
+        if ( $file->isValid() ) {
+            $filename = $file->getRealPath();
+
+            $f = new Upload();
+            $ret = $f->upload($filename);
+
+            return json_encode($ret);
+        }
+
+        return json_encode(["state" => "无效的图片"]);
 	}
 	
 	/**
