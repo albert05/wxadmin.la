@@ -16,7 +16,7 @@
 	<div class="box-body">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-				{!! Form::model($field, ['route' => [config('laraadmin.adminRoute') . '.module_fields.update', $field->id ], 'method'=>'PUT', 'id' => 'field-edit-form']) !!}
+				{!! Form::model($field, ['route' => ['module_fields.update', $field->id ], 'method'=>'PUT', 'id' => 'field-edit-form']) !!}
 					{{ Form::hidden("module_id", $module->id) }}
 					
 					<div class="form-group">
