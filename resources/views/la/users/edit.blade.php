@@ -29,7 +29,7 @@
 	<div class="box-body">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-				{!! Form::model($user, ['route' => [config('laraadmin.adminRoute') . '.users.update', $user->id ], 'method'=>'PUT', 'id' => 'user-edit-form']) !!}
+				{!! Form::model($user, ['route' => ['users.update', $user->id ], 'method'=>'PUT', 'id' => 'user-edit-form']) !!}
 					@la_form($module)
 					
 					{{--

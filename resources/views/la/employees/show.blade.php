@@ -50,7 +50,7 @@
 			@endla_access
 			
 			@la_access("Employees", "delete")
-				{{ Form::open(['route' => [config('laraadmin.adminRoute') . '.employees.destroy', $employee->id], 'method' => 'delete', 'style'=>'display:inline']) }}
+				{{ Form::open(['route' => ['employees.destroy', $employee->id], 'method' => 'delete', 'style'=>'display:inline']) }}
 					<button class="btn btn-default btn-delete btn-xs" type="submit"><i class="fa fa-times"></i></button>
 				{{ Form::close() }}
 			@endla_access

@@ -29,7 +29,7 @@
 	<div class="box-body">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-				{!! Form::model($role, ['route' => [config('laraadmin.adminRoute') . '.roles.update', $role->id ], 'method'=>'PUT', 'id' => 'role-edit-form']) !!}
+				{!! Form::model($role, ['route' => ['roles.update', $role->id ], 'method'=>'PUT', 'id' => 'role-edit-form']) !!}
 					@la_input($module, 'name', null, null, "form-control text-uppercase", ["placeholder" => "Role Name in CAPITAL LETTERS with '_' to JOIN e.g. 'SUPER_ADMIN'"])
 					@la_input($module, 'display_name')
 					@la_input($module, 'description')
