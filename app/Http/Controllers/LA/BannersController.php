@@ -226,16 +226,15 @@ class BannersController extends Controller
 				if($fields_popup[$col] != null && starts_with($fields_popup[$col]->popup_vals, "@")) {
 					$data->data[$i][$j] = ModuleFields::getFieldValue($fields_popup[$col], $data->data[$i][$j]);
 				}
-				if($col == $this->view_col) {
-					$data->data[$i][$j] = '<a href="'.url(config('laraadmin.adminRoute') . '/banners/'.$data->data[$i][0]).'">'.$data->data[$i][$j].'</a>';
-				}
+//				if($col == $this->view_col) {
+//					$data->data[$i][$j] = '<a href="'.url(config('laraadmin.adminRoute') . '/banners/'.$data->data[$i][0]).'">'.$data->data[$i][$j].'</a>';
+//				}
 			}
 			
 			if($this->show_action) {
 				$output = '';
 				if(Module::hasAccess("Banners", "edit")) {
-				    $t = $data->data[$i][0];
-                    $url = "/banners/{$t}/edit";
+                    $url = config('laraadmin.adminRoute') . "/banners/{$data->data[$i][0]}/edit";
                     $output .= '<a href="' . $url . '" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
 				}
 				$data->data[$i][] = (string)$output;
