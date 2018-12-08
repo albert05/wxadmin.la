@@ -40,32 +40,35 @@
             $menuItems = Dwij\Laraadmin\Models\Menu::where("parent", 0)->orderBy('hierarchy', 'asc')->get();
             ?>
             @foreach ($menuItems as $menu)
+                <?php
+                $isShow = true;
+                if ($menu->id == 1 && $menu->name == "Team") {
+                    $isShow = false;
+                }
+                ?>
+                @role("SUPER_ADMIN")
+                <?php
+                $isShow = true;
+                ?>
+                @endrole
                 @if($menu->type == "module")
-
                     <?php
                     $temp_module_obj = Module::get($menu->name);
-                    $isShow = true;
-                    if ($menu->id == 1 && $menu->name == "Team") {
-                        $isShow = false;
-                    }
                     ?>
-                    @role("SUPER_ADMIN")
-                        <?php
-                        $isShow = true;
-                        ?>
-                    @endrole
                     @if($isShow)
-                            @la_access($temp_module_obj->id)
-                            @if(isset($module->id) && $module->name == $menu->name)
-                                <?php echo LAHelper::print_menu($menu ,true); ?>
-                            @else
-                                <?php echo LAHelper::print_menu($menu); ?>
-                            @endif
-                            @endla_access
-                    @endif
-                @else
+                        @la_access($temp_module_obj->id)
+                        @if(isset($module->id) && $module->name == $menu->name)
+                            <?php echo LAHelper::print_menu($menu ,true); ?>
+                        @else
+                            <?php echo LAHelper::print_menu($menu); ?>
+                        @endif
+                        @endla_access
+                @endif
+            @else
+                @if($isShow)
                     <?php echo LAHelper::print_menu($menu); ?>
                 @endif
+            @endif
             @endforeach
             <!-- LAMenus -->
             
