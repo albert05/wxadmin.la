@@ -90,7 +90,7 @@ class PermissionsController extends Controller
 			
 			$insert_id = Module::insert("Permissions", $request);
 			
-			return redirect()->route(config('laraadmin.adminRoute') . '.permissions.index');
+			return redirect()->route('permissions.index');
 			
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
@@ -182,7 +182,7 @@ class PermissionsController extends Controller
 			
 			$insert_id = Module::updateRow("Permissions", $request, $id);
 			
-			return redirect()->route(config('laraadmin.adminRoute') . '.permissions.index');
+			return redirect()->route('permissions.index');
 			
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
@@ -201,7 +201,7 @@ class PermissionsController extends Controller
 			Permission::find($id)->delete();
 			
 			// Redirecting to index() method
-			return redirect()->route(config('laraadmin.adminRoute') . '.permissions.index');
+			return redirect()->route('permissions.index');
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
 		}

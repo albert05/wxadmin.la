@@ -100,7 +100,7 @@ class RolesController extends Controller
 			$perm = Permission::where("name", "ADMIN_PANEL")->first();
 			$role->attachPermission($perm);
 			
-			return redirect()->route(config('laraadmin.adminRoute') . '.roles.index');
+			return redirect()->route('roles.index');
 			
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
@@ -204,7 +204,7 @@ class RolesController extends Controller
 			
 			$insert_id = Module::updateRow("Roles", $request, $id);
 			
-			return redirect()->route(config('laraadmin.adminRoute') . '.roles.index');
+			return redirect()->route('roles.index');
 			
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
@@ -223,7 +223,7 @@ class RolesController extends Controller
 			Role::find($id)->delete();
 			
 			// Redirecting to index() method
-			return redirect()->route(config('laraadmin.adminRoute') . '.roles.index');
+			return redirect()->route('roles.index');
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
 		}

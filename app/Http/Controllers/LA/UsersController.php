@@ -87,7 +87,7 @@ class UsersController extends Controller
 			
 			$insert_id = Module::insert("Users", $request);
 			
-			return redirect()->route(config('laraadmin.adminRoute') . '.users.index');
+			return redirect()->route('users.index');
 			
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
@@ -177,7 +177,7 @@ class UsersController extends Controller
 			
 			$insert_id = Module::updateRow("Users", $request, $id);
 			
-			return redirect()->route(config('laraadmin.adminRoute') . '.users.index');
+			return redirect()->route('users.index');
 			
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
@@ -196,7 +196,7 @@ class UsersController extends Controller
 			User::find($id)->delete();
 			
 			// Redirecting to index() method
-			return redirect()->route(config('laraadmin.adminRoute') . '.users.index');
+			return redirect()->route('users.index');
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
 		}
