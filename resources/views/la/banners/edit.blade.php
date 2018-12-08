@@ -1,10 +1,12 @@
 @extends("la.layouts.app")
 
+@section("contentheader_title")
+    Banner Edit
+@endsection
 @section("contentheader_description", $banner->$view_col)
 @section("section", "Banners")
 @section("section_url", url(config('laraadmin.adminRoute') . '/banners'))
 @section("sub_section", "Edit")
-
 @section("htmlheader_title", "Banners Edit : ".$banner->$view_col)
 
 @section("main-content")
