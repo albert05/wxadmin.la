@@ -64,7 +64,7 @@
 					<div class="form-group control-all">
 						<label for="img_url">图片 :</label>
 						<input class="form-control" placeholder="" data-rule-maxlength="256" name="img_url" type="hidden" value="" id="img_url">
-						<span><img id='img_url_view' src=''></span><button type="button" class="btn btn-success up-img" style="margin-left: 20px;">上传</button>
+						<span><img id='img_url_view' src='' width="100px" height="80px"></span><button type="button" class="btn btn-success up-img" style="margin-left: 20px;">上传</button>
 					</div>
 
 					<div class="form-group control-all">
