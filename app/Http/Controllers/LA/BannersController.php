@@ -234,7 +234,8 @@ class BannersController extends Controller
 			if($this->show_action) {
 				$output = '';
 				if(Module::hasAccess("Banners", "edit")) {
-                    $output .= '<a href="" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
+                    $url = url(config('laraadmin.adminRoute') . "/banners/{$data->data[$i][0]}/edit");
+                    $output .= '<a href="' . $url . '" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
 				}
 				$data->data[$i][] = (string)$output;
 			}
