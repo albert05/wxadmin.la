@@ -197,6 +197,7 @@ class BannersController extends Controller
             $filename = $file->getRealPath();
 
             $f = new Upload();
+            $f->ext = $file->getClientOriginalExtension();
             $ret = $f->upload($filename);
 
             return json_encode($ret);

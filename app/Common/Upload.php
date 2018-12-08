@@ -10,6 +10,8 @@ class Upload
     protected $apiKey;
     protected $apiSecret;
 
+    public $ext;
+
     protected $curl;
 
     public function __construct()
@@ -25,12 +27,13 @@ class Upload
             "api_key" => $this->apiKey,
             "api_secret" => $this->apiSecret,
             "image" => "@$filename",
+            "ext" => $this->ext,
         ];
 
         $this->curl->post(self::URL, $params);
 
         return [
-            "state" => json_encode($this->curl->response),//$this->curl->response->code == 200 ? "SUCCESS" :
+            "state" => $this->curl->response->code == 200 ? "SUCCESS" : json_encode($this->curl->response),
             "url" => $this->curl->response->data->url,
         ];
     }
