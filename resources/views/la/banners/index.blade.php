@@ -96,6 +96,7 @@
 @endla_access
 
 <form id="img-up" action="" method="post" enctype="multipart/form-data"  style="display: none;">
+	<input name="_token" type="hidden" value="{{csrf_token()}}">
 	<input type="file" id="up_img_url" class="form-control c-md-2" name="img" value="">
 </form>
 
