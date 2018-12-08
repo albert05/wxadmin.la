@@ -263,7 +263,7 @@ class RolesController extends Controller
 				}
 				
 				if(Module::hasAccess("Roles", "delete")) {
-					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.roles.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
+					$output .= Form::open(['route' => ['roles.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
 					$output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
 					$output .= Form::close();
 				}

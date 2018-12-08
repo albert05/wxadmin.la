@@ -34,12 +34,12 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	Route::get(config('laraadmin.adminRoute') . '/user_dt_ajax', 'LA\UsersController@dtajax');
 
 	/* ================== Roles ================== */
-	Route::resource(config('laraadmin.adminRoute') . '/roles', 'LA\RolesController');
+	Route::resource('roles', 'LA\RolesController');
 	Route::get(config('laraadmin.adminRoute') . '/role_dt_ajax', 'LA\RolesController@dtajax');
 	Route::post(config('laraadmin.adminRoute') . '/save_module_role_permissions/{id}', 'LA\RolesController@save_module_role_permissions');
 	
 	/* ================== Permissions ================== */
-	Route::resource(config('laraadmin.adminRoute') . '/permissions', 'LA\PermissionsController');
+	Route::resource('permissions', 'LA\PermissionsController');
 	Route::get(config('laraadmin.adminRoute') . '/permission_dt_ajax', 'LA\PermissionsController@dtajax');
 	Route::post(config('laraadmin.adminRoute') . '/save_permissions/{id}', 'LA\PermissionsController@save_permissions');
 	
@@ -48,7 +48,7 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	Route::get(config('laraadmin.adminRoute') . '/department_dt_ajax', 'LA\DepartmentsController@dtajax');
 	
 	/* ================== Employees ================== */
-	Route::resource(config('laraadmin.adminRoute') . '/employees', 'LA\EmployeesController');
+	Route::resource('employees', 'LA\EmployeesController');
 	Route::get(config('laraadmin.adminRoute') . '/employee_dt_ajax', 'LA\EmployeesController@dtajax');
 	Route::post(config('laraadmin.adminRoute') . '/change_password/{id}', 'LA\EmployeesController@change_password');
 	
