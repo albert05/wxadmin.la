@@ -219,6 +219,11 @@ class BannersController extends Controller
 		$data = $out->getData();
 
 		$fields_popup = ModuleFields::getModuleFields('Banners');
+
+		$status_list = [
+            0 => "不启用",
+            1 => "启用",
+        ];
 		
 		for($i=0; $i < count($data->data); $i++) {
 			for ($j=0; $j < count($this->listing_cols); $j++) { 
@@ -227,8 +232,10 @@ class BannersController extends Controller
 					$data->data[$i][$j] = ModuleFields::getFieldValue($fields_popup[$col], $data->data[$i][$j]);
 				}
 
-				if ($col == "img_url") {
+				if ( $col == "img_url" ) {
                     $data->data[$i][$j] = "<img src='{$data->data[$i][$j]}' width=\"300px\" height=\"150px\">";
+                } else if ( $col == "status") {
+                    $data->data[$i][$j] = $status_list[$data->data[$i][$j]];
                 }
 
 //				if($col == $this->view_col) {
