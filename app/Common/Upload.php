@@ -23,10 +23,12 @@ class Upload
         $params = [
             "api_key" => $this->apiKey,
             "api_secret" => $this->apiSecret,
-            "image" => $filename,
+            "image" => "@$filename",
         ];
 
-        $this->curl->post(self::URL, $params);
+        $this->curl->patch(self::URL, $params);
+
+        return json_decode(json_encode($this->curl->response), true);
 
         return [
             "state" => $this->curl->response->code == 200 ? "SUCCESS" : json_encode($this->curl->response),
