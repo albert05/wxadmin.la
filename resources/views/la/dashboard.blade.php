@@ -14,7 +14,7 @@
               <div class="small-box bg-aqua">
                 <div class="inner">
                   <h3>{{$daily}}</h3>
-                  <p>Daily Task</p>
+                  <p></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-bag"></i>
@@ -27,7 +27,7 @@
               <div class="small-box bg-green">
                 <div class="inner">
                   <h3>{{$exchange}}</h3>
-                  <p>Exchange Task</p>
+                  <p></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -39,7 +39,7 @@
               <div class="small-box bg-yellow">
                 <div class="inner">
                   <h3>{{$order}}</h3>
-                  <p>Order Task</p>
+                  <p></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-person-add"></i>
@@ -51,7 +51,7 @@
               <div class="small-box bg-red">
                 <div class="inner">
                   <h3>{{$share}}</h3>
-                  <p>Share Task</p>
+                  <p></p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
